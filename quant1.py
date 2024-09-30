@@ -40,40 +40,40 @@ Data = pd.DataFrame()
 Data['Price'] = df['Adj Close']
 Data['SMA20'] = SMA20['Price']
 Data['SMA50'] = SMA50['Price']
-Data['funds'] = 1000         # Initialize funds so that it could be later modified
+Data['funds'] = 1000 # Initialize funds so that it could be later modified
 
 # Create a function to signal when to buy and when to sell
 def buy_sell_signal(data):
   buy_signal = []
   sell_signal = []
   open_position = []
-  funds = [100000] * len(data)
-  last_funds = 100000
+  funds = [1000] * len(data)
+  last_funds = 1000
   flag = 0  # flag = 0 means sell_flag and flag = 1 means buy_flag
 
   for i in range(len(data)):
-    if data['SMA20'][i] > data['SMA50'][i]:
+    if data['SMA20'].iloc[i] > data['SMA50'].iloc[i]:
       if flag == 0:
         flag = 1
-        buy_signal.append(data['Price'][i])
-        last_pos = last_funds / data['Price'][i]
+        buy_signal.append(data['Price'].iloc[i])
+        last_pos = last_funds / data['Price'].iloc[i]
         funds[i] = last_funds
         open_position.append(last_pos)     # buy_quantity with 1 Lac Capital
         sell_signal.append(np.NaN)
       else:
         buy_signal.append(np.NaN)
-        last_funds = data['Price'][i] * last_pos
+        last_funds = data['Price'].iloc[i] * last_pos
         funds[i] = last_funds
         open_position.append(last_pos)
         sell_signal.append(np.NaN)
-    elif data['SMA20'][i] < data['SMA50'][i]:
+    elif data['SMA20'].iloc[i] < data['SMA50'].iloc[i]:
       if flag == 1:
         flag = 0
         buy_signal.append(np.NaN)
-        last_funds = last_pos * data['Price'][i]
+        last_funds = last_pos * data['Price'].iloc[i]
         funds[i] = last_funds
         open_position.append(0)
-        sell_signal.append(data['Price'][i])
+        sell_signal.append(data['Price'].iloc[i])
       else:
         buy_signal.append(np.NaN)
         funds[i] = last_funds
@@ -99,10 +99,10 @@ plt.figure(figsize = (15, 8))
 plt.plot(Data['Price'], label = str(stock), linewidth = 1)
 plt.plot(Data['SMA20'], label = 'SMA20', linewidth = 0.5)
 plt.plot(Data['SMA50'], label = 'SMA50', linewidth = 0.5)
-plt.scatter(Data.index, Data['Buy_price'], label= 'Buy', marker = '^', color = 'g')
-plt.scatter(Data.index, Data['Sell_price'], label= 'Sell', marker = 'v', color = 'r')
+plt.scatter(Data.index, Data['Buy_price'], label= 'Buy', marker = '^', color = 'g', s = 100)
+plt.scatter(Data.index, Data['Sell_price'], label= 'Sell', marker = 'v', color = 'r', s = 100)
 plt.title(str(stock) + ' Buy-Sell Signals')
-plt.xlabel(num_days, 'days')
+plt.xlabel(str(num_days) + ' days')
 plt.ylabel('Close price (₹)')
 plt.legend(loc = 'upper left')
 plt.show()
@@ -111,8 +111,8 @@ plt.show()
 plt.figure(figsize = (15, 8))
 plt.plot(Data['funds'], linewidth = 1.0)
 plt.xticks(rotation=45)
+plt.title('PnL')
+plt.xlabel('Date')
+plt.ylabel('Funds')
 plt.show()
-
-
-
-
+print(Data['funds'])
