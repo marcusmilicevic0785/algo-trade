@@ -5,7 +5,6 @@ import pandas as pd
 import yfinance as yf
 import numpy as np
 plt.style.use('fivethirtyeight')
-# %matplotlib inline use 'plt.show()' insted of that before
 
 # INPUT THE DATA
 stock = str(input("Stock name is: "))
