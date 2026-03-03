@@ -24,9 +24,9 @@ ax1.set_xlim(df['observation_date'].min(), df['observation_date'].max())
 ax1.set_ylim(0, df['debt'].max() * 1.05)
 
 # Vertical forecast line
-ax1.axvline(x=cutoff, color='gray', linewidth=1.5)
+ax1.axvline(x=cutoff, color='#1E3A8A', linewidth=3)
 ax1.text(cutoff, df['debt'].max() * 0.95,
-         '  Forecast →', color='gray', fontsize=11)
+         '  Forecast →', color='black', fontsize=12, fontweight="bold")
 
 # X-axis: years only, no bold
 ax1.xaxis.set_major_locator(mdates.YearLocator(5))
