@@ -1,4 +1,4 @@
-# Federal Debt: Total Public Debt as Percent of Gross Domestic Product
+# Federal Outlays: Interest as Percent of Gross Domestic Product (FYOIGDA188S)
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates

@@ -9,8 +9,8 @@ import matplotlib.pyplot as plt
 #     'debtgdp': [136.832, 128.292, 120.146, 112.316, 106.3, 101.414, 98.4089, 95.9355, 93.7337, 91.9406, 90.1992, 88.5658, 87.6531, 87.9556]
 # }
 data = {
-    'name': ['Negotiated Drug Prices', 'Incentivizing Registered Apprenticeships', 'Earned Income Tax Credit', 'Expansion of Small Business Association', 'MID/SALT', 'Affordable Care Act', 'National Healthcare Transparency Board', 'Student Loan Debt Restructuring', 'Child Tax Credit', 'Financial Transaction Tax', 'Increasing IRS Funding', 'Payroll Tax', 'Sovereign Wealth Fund', 'CBO Projection'],
-    'debtgdp': [87.9556, 87.6531, 88.5658, 90.1992, 91.9406, 93.7337, 95.9355, 98.4089, 101.414, 106.3, 112.316, 120.146, 128.292, 136.832]
+    'name': ['Negotiated Drug Prices', 'Incentivizing Registered Apprenticeships', 'Earned Income Tax Credit', 'Expansion of Small Business Association', 'MID/SALT', 'Affordable Care Act', 'National Healthcare Transparency Board', 'Child Tax Credit', 'Increasing IRS Funding', 'Payroll Tax', 'Sovereign Wealth Fund', 'Financial Transaction Tax', 'CBO Projection'],
+    'debtgdp': [89.8912, 89.5887, 90.404, 92.0374, 93.7788, 95.572, 97.7738, 97.6986, 102.585, 110.414, 118.561, 127.1, 136.832]
 }
 
 
