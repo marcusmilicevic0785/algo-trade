@@ -39,11 +39,8 @@ for col, color in categories.items():
     ax.plot(df['year'], df[f'{col}_plot'],
             linewidth=2.5, color=color, label=col.replace('_', ' ').title())
 
-# Divider line between actual and forecast
-# last_known_year = df.loc[df['mandatory'].notna(), 'year'].max()
-# ax.axvline(x=last_known_year, color='gray', linestyle=':', linewidth=1.5)
-# ax.text(last_known_year + 0.2, all_pred_max * 0.98,
-#         'Forecast →', fontsize=11, color='gray')
+ax.set_xticks([2025, 2030, 2035, 2040, 2045, 2050, 2056])
+plt.xticks(rotation=0, fontsize=11)
 
 # Axes — use predicted max to ensure everything fits
 ax.set_xlim(df['year'].min(), df['year'].max())

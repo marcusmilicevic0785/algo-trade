@@ -29,7 +29,7 @@ ax1.text(cutoff, df['debt'].max() * 0.95,
          '  Forecast →', color='black', fontsize=12, fontweight="bold")
 
 # X-axis: years only, no bold
-ax1.xaxis.set_major_locator(mdates.YearLocator(5))
+# ax1.xaxis.set_major_locator(mdates.YearLocator(5))
 ax1.xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
 plt.xticks(rotation=0, fontsize=11)
 
@@ -38,6 +38,11 @@ ax1.set_ylabel('Percent of GDP', fontsize=12)
 ax1.tick_params(axis='both', labelsize=11, width=1)
 ax1.yaxis.grid(True, linestyle='--', linewidth=0.7, color='grey', alpha=0.7)
 ax1.set_axisbelow(True)
+
+specific_x_ticks = ["1970-01-01", "1980-01-01", "1990-01-01",
+                    "2000-01-01", "2010-01-01", "2020-01-01", "2026-01-01", "2030-01-01", "2040-01-01", "2050-01-01", "2056-01-01"]
+
+ax1.set_xticks(specific_x_ticks)
 
 # Remove bold from tick labels
 for label in ax1.get_xticklabels() + ax1.get_yticklabels():

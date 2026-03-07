@@ -18,6 +18,10 @@ fig, ax = plt.subplots(figsize=(15, 8))
 for col, color in categories.items():
     ax.plot(df['year'], df[col], linewidth=2.5, color=color, label=col)
 
+# Use numeric year ticks because `year` is an integer column, not datetimes.
+ax.set_xticks([2026, 2031, 2036, 2041, 2046, 2051, 2056])
+plt.xticks(rotation=0, fontsize=11)
+
 ax.set_xlim(df['year'].min(), df['year'].max())
 ax.set_ylim(80, df["CBO's Prediction"].max() * 1.05)
 ax.set_ylabel('Percent of GDP', fontsize=12)
